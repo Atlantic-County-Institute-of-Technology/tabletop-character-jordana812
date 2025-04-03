@@ -10,7 +10,7 @@ Today, we'll create a class with the following attributes and functions
 - Strength (STR) - A value between 1 and 20
 - Dexterity (DEX) - A value between 1 and 20
 - Constitution (CON) - A value between 1 and 20
-- Intelligence (INT) - A value between 1 and 20
+-   (INT) - A value between 1 and 20
 - Wisdom (WIS) - A value between 1 and 20
 - Charisma (CHA) - A value between 1 and 20
 - Name - The String name of the character
