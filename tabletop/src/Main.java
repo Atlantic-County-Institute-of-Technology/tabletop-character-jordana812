@@ -5,12 +5,13 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args){
+        Character c1 = new Character();
 
+        System.out.println();
     }
-
 }
 
-class characterTraits{
+class characterStats{
     protected String name;
     protected int level;
     protected int HP;
@@ -18,7 +19,7 @@ class characterTraits{
     protected int DEX;
     protected int INT;
     protected int CON;
-    protected int amour_class;
+    protected int armor_class;
     protected int wizzdom;
     protected int charizz;
     protected ArrayList<String> features;
@@ -26,27 +27,64 @@ class characterTraits{
     public void Character(){
         this.name = "Jordan Arrington";
         this.level = 1;
-        this.HP = 10;
         this.STR = 10;
         this.DEX = 10;
         this.INT = 10;
         this.CON = 10;
-        this.amour_class = 10;
+        this.armor_class = 10;
         this.wizzdom = 10;
         this.charizz = 10;
-
+        hpCALC();
         }
 
-    public characterTraits(String name, int level){
+    public void Character(String name, int level){
         Random rand = new Random();
-        int[] diceRolls = new int[6];
-        for(int i = 0; i < 6; i++){
-            diceRolls[i] = rand.nextInt(6) + 1;
-        }
+        STR = rand.nextInt(3, 18);
+        DEX = rand.nextInt(3, 18);
+        INT = rand.nextInt(3, 18);
+        CON = rand.nextInt(3, 18);
+        wizzdom = rand.nextInt(3, 18);
+        charizz = rand.nextInt(3, 18);
+    }
 
-        Arrays.sort();
-        System.out.println(Arrays.toString(diceRolls));
+    public void hpCALC(){
+        if(level == 1){
+            HP = 10 + CON;
+        }
+        else{
+            HP = HP + (level - 1) * (6 + CON);
+        }
+    }
+
+    public void armorClassCALC(){
+        armor_class = 10 + DEX;
+    }
+
+    public void abilityMOD(){
 
     }
+
+    public void levelUP(){
+        level++;
+        hpCALC();
+        armorClassCALC();
+    }
+
+
+    public void ADDfeatures(String feature) {
+        features.add(feature);
+    }
+
+    public String toString(){
+        return "\nCharacter: " + this.name + "\nLVL: " + this.level + "\nSTR: " + this.STR + "\nDEX: " + this.DEX + "\nINT: " + this.INT + "\nConstipation: " + this.CON + "\nArmor: " + this.armor_class + "\nWizzdom: " + this.wizzdom + "\nCharizz: " + this.charizz;
+    }
+}
+
+class Wizard extends Character{
+    public void wizard(){
+        super();
+
+    }
+
 }
 
